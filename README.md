@@ -58,7 +58,7 @@ Error responses will include the following fields:
 - ```error```: A brief description of the error.
 - ```message```: A detailed message explaining the error.
 
-<h4>Example of an error response:</h4>
+Example of an error response:
 
 ```
 
