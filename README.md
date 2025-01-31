@@ -262,6 +262,10 @@ How to Update a Task
     Make a PUT request to /tasks/{task_id} with the new data you want to update.
     The task will be updated, and the response will reflect the new data.
 
-Conclusion
+<h2>Conclusion</h2>
 
 This API documentation provides all the necessary information to interact with the Task Management API effectively. By following the instructions and making appropriate requests, developers can easily integrate task management functionality into their applications.
+
+<h2></h2>
+<p align="center">
+  <a href="https://github.com/rlangc/Test_RCL.git"><b>Return to Home</b></a>
