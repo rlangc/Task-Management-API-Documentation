@@ -71,8 +71,8 @@ Example of an error response:
 
 <h3>Endpoints</h3>
 
+<h4>1. Create a New Task</h4>
 
-1. Create a New Task
 
 Create a new task with the specified parameters.
 
@@ -114,7 +114,8 @@ Create a new task with the specified parameters.
         201 Created: Task created successfully.
         400 Bad Request: Missing or invalid parameters.
 
-2. Get Task by ID
+<h4>2. Get Task by ID</h4>
+
 
 Retrieve a specific task by its ID.
 
@@ -143,7 +144,8 @@ Retrieve a specific task by its ID.
         200 OK: Task retrieved successfully.
         404 Not Found: Task not found.
 
-3. Update a Task
+<h4>3. Update a Task</h4>
+
 
 Update the details of an existing task.
 
@@ -182,7 +184,8 @@ Update the details of an existing task.
         400 Bad Request: Invalid data.
         404 Not Found: Task not found.
 
-4. Delete a Task
+<h4>4. Delete a Task</h4>
+
 
 Delete an existing task.
 
@@ -205,7 +208,8 @@ Delete an existing task.
         200 OK: Task deleted successfully.
         404 Not Found: Task not found.
 
-5. Get All Tasks
+<h4>5. Get All Tasks</h4>
+
 
 Retrieve a list of all tasks.
 
@@ -243,24 +247,25 @@ Retrieve a list of all tasks.
   }
 ]
 
-    Status Codes:
-        200 OK: Tasks retrieved successfully.
+Status Codes:
+- ```200 OK```: Tasks retrieved successfully.
 
-Tutorials
-How to Create a Task
+<h2>Tutorials</h2>
 
-    Get your access token by following the OAuth 2.0 flow.
-    Make a POST request to /tasks with the required data:
+<h3>How to Create a Task</h3>
+
+- Get your access token by following the OAuth 2.0 flow
+- Make a POST request to /tasks with the required data:
         title
         description (optional)
         due_date (optional)
-    The response will contain the task details, including the task_id.
+    The response will contain the task details, including the task_id
 
-How to Update a Task
+<h3>How to Update a Task</h3>
 
-    Get the task ID by querying an existing task using /tasks/{task_id}.
-    Make a PUT request to /tasks/{task_id} with the new data you want to update.
-    The task will be updated, and the response will reflect the new data.
+- Get the task ID by querying an existing task using /tasks/{task_id}
+- Make a PUT request to /tasks/{task_id} with the new data you want to update
+- The task will be updated, and the response will reflect the new data
 
 <h2>Conclusion</h2>
 
