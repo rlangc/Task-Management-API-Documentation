@@ -10,54 +10,68 @@ The Task Management API allows developers to interact with a task management sys
 
 All API requests should be made to the following base URL:
 
+```
+
 https://api.taskmanager.com/v1
 
-Authentication
+```
+
+<h3>Authentication</h3>
 
 The API uses OAuth 2.0 for authentication. You'll need to obtain a valid access token to make requests.
-
-    Authentication method: Bearer Token
-    Obtain Access Token: Follow the OAuth 2.0 authorization flow to get a valid access token.
+- Authentication method: Bearer Token
+- Obtain Access Token: Follow the OAuth 2.0 authorization flow to get a valid access token.
 
 All requests to the API require an Authorization header:
 
+```
+
 Authorization: Bearer {access_token}
 
-Rate Limiting
+```
+
+<h2></h2>
+
+<h3>Rate Limiting</h3>
 
 To ensure fair usage of the API, rate limits are enforced. Each user has a maximum of 1000 requests per hour.
+- Rate Limit: 1000 requests per hour
+- Rate Limit Response Headers:
+- ```X-RateLimit-Limit```: The maximum number of requests allowed
+- ```X-RateLimit-Remaining```: The number of requests remaining
+- ```X-RateLimit-Reset```: The time (in UNIX timestamp format) when the rate limit will reset
 
-    Rate Limit: 1000 requests per hour
-    Rate Limit Response Headers:
-        X-RateLimit-Limit: The maximum number of requests allowed.
-        X-RateLimit-Remaining: The number of requests remaining.
-        X-RateLimit-Reset: The time (in UNIX timestamp format) when the rate limit will reset.
+<h2></h2>
 
-Error Handling
+<h3>Error Handling</h3>
 
 The API uses standard HTTP status codes to indicate the success or failure of a request:
-
-    200 OK: The request was successful.
-    201 Created: The resource was successfully created.
-    400 Bad Request: The request is malformed or missing required parameters.
-    401 Unauthorized: Authentication failed or access token is missing/expired.
-    403 Forbidden: The user does not have permission to access the requested resource.
-    404 Not Found: The requested resource does not exist.
-    500 Internal Server Error: An unexpected error occurred on the server side.
+- ```200 OK```: The request was successful.
+- ```201 Created```: The resource was successfully created.
+- ```400 Bad Request```: The request is malformed or missing required parameters.
+- ```401 Unauthorized```: Authentication failed or access token is missing/expired.
+- ```403 Forbidden```: The user does not have permission to access the requested resource.
+- ```404 Not Found```: The requested resource does not exist.
+- ```500 Internal Server Error```: An unexpected error occurred on the server side.
 
 Error responses will include the following fields:
+- ```error```: A brief description of the error.
+- ```message```: A detailed message explaining the error.
 
-    error: A brief description of the error.
-    message: A detailed message explaining the error.
+<h4>Example of an error response:</h4>
 
-Example of an error response:
+```
 
 {
   "error": "invalid_request",
   "message": "The 'due_date' parameter is missing."
 }
 
-Endpoints
+```
+
+<h3>Endpoints</h3>
+
+
 1. Create a New Task
 
 Create a new task with the specified parameters.
