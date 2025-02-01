@@ -20,7 +20,7 @@ https://api.taskmanager.com/v1
 
 The API uses OAuth 2.0 for authentication. You'll need to obtain a valid access token to make requests.
 - Authentication method: Bearer Token
-- Obtain Access Token: Follow the OAuth 2.0 authorization flow to get a valid access token.
+- Obtain Access Token: Follow the OAuth 2.0 authorization flow to get a valid access token
 
 All requests to the API require an Authorization header:
 
@@ -46,17 +46,17 @@ To ensure fair usage of the API, rate limits are enforced. Each user has a maxim
 <h3>Error Handling</h3>
 
 The API uses standard HTTP status codes to indicate the success or failure of a request:
-- ```200 OK```: The request was successful.
-- ```201 Created```: The resource was successfully created.
-- ```400 Bad Request```: The request is malformed or missing required parameters.
-- ```401 Unauthorized```: Authentication failed or access token is missing/expired.
-- ```403 Forbidden```: The user does not have permission to access the requested resource.
-- ```404 Not Found```: The requested resource does not exist.
-- ```500 Internal Server Error```: An unexpected error occurred on the server side.
+- ```200 OK```: The request was successful
+- ```201 Created```: The resource was successfully created
+- ```400 Bad Request```: The request is malformed or missing required parameters
+- ```401 Unauthorized```: Authentication failed or access token is missing/expired
+- ```403 Forbidden```: The user does not have permission to access the requested resource
+- ```404 Not Found```: The requested resource does not exist
+- ```500 Internal Server Error```: An unexpected error occurred on the server side
 
 Error responses will include the following fields:
-- ```error```: A brief description of the error.
-- ```message```: A detailed message explaining the error.
+- ```error```: A brief description of the error
+- ```message```: A detailed message explaining the error
 
 Example of an error response:
 
@@ -69,17 +69,20 @@ Example of an error response:
 
 ```
 
+<h2></h2>
+  
 <h3>Endpoints</h3>
 
 <h4>1. Create a New Task</h4>
 
-
 Create a new task with the specified parameters.
 
-    Endpoint: /tasks
-    Method: POST
-    Description: This endpoint creates a new task in the system.
-    Request Body:
+- Endpoint: ```/tasks```
+- Method: ```POST```
+- Description: This endpoint creates a new task in the system
+- Request Body:
+
+```
 
 {
   "title": "Buy Groceries",
@@ -90,15 +93,19 @@ Create a new task with the specified parameters.
   "category_id": "3"
 }
 
-    Parameters:
-        title (string): The title of the task (required).
-        description (string): A detailed description of the task (optional).
-        due_date (string, ISO 8601 format): The due date and time for the task (optional).
-        priority (string): The priority level of the task. Valid values: Low, Medium, High (optional).
-        status (string): The current status of the task. Valid values: Pending, In Progress, Completed (optional).
-        category_id (string): The ID of the category under which the task falls (optional).
+```
 
-    Response:
+- Parameters:
+  - ```title``` (string): The title of the task (required)
+  - ```description``` (string): A detailed description of the task (optional)
+  - ```due_date``` (string, ISO 8601 format): The due date and time for the task (optional)
+  - ```priority``` (string): The priority level of the task. Valid values: ```Low```, ```Medium```, ```High``` (optional)
+  - ```status``` (string): The current status of the task. Valid values: ```Pending```, ```In Progress```, ```Completed``` (optional)
+  - ```category_id``` (string): The ID of the category under which the task falls (optional)
+
+- Response:
+
+```
 
 {
   "task_id": "12345",
@@ -110,25 +117,25 @@ Create a new task with the specified parameters.
   "category_id": "3"
 }
 
-    Status Codes:
-        201 Created: Task created successfully.
-        400 Bad Request: Missing or invalid parameters.
+```
 
+- Status Codes:
+  - ```201 Created```: Task created successfully
+  - ```400 Bad Request```: Missing or invalid parameters
+
+<h2>
+  
 <h4>2. Get Task by ID</h4>
 
+- Retrieve a specific task by its ID
+- Endpoint: ```/tasks/{task_id}```
+- Method: ```GET```
+- Description: Fetch a task by its unique ID
+- Parameters:
+  - ```task_id``` (string): The ID of the task to retrieve (required)
+- Response:
 
-Retrieve a specific task by its ID.
-
-    Endpoint: /tasks/{task_id}
-
-    Method: GET
-
-    Description: Fetch a task by its unique ID.
-
-    Parameters:
-        task_id (string): The ID of the task to retrieve (required).
-
-    Response:
+```
 
 {
   "task_id": "12345",
@@ -140,25 +147,25 @@ Retrieve a specific task by its ID.
   "category_id": "3"
 }
 
-    Status Codes:
-        200 OK: Task retrieved successfully.
-        404 Not Found: Task not found.
+```
 
+- Status Codes:
+  - ```200 OK```: Task retrieved successfully.
+  - ```404 Not Found```: Task not found.
+
+<h2>
+  
 <h4>3. Update a Task</h4>
 
-
 Update the details of an existing task.
+- Endpoint: ```/tasks/{task_id}```
+- Method: ```PUT```
+- Description: Update the task with the specified ID.
+- Parameters:
+  - ```task_id``` (string): The ID of the task to update (required).
+- Request Body:
 
-    Endpoint: /tasks/{task_id}
-
-    Method: PUT
-
-    Description: Update the task with the specified ID.
-
-    Parameters:
-        task_id (string): The ID of the task to update (required).
-
-    Request Body:
+```
 
 {
   "title": "Buy Groceries",
@@ -168,7 +175,11 @@ Update the details of an existing task.
   "status": "In Progress"
 }
 
-    Response:
+```
+
+- Response:
+
+```
 
 {
   "task_id": "12345",
@@ -179,52 +190,52 @@ Update the details of an existing task.
   "status": "In Progress"
 }
 
-    Status Codes:
-        200 OK: Task updated successfully.
-        400 Bad Request: Invalid data.
-        404 Not Found: Task not found.
+```
 
+- Status Codes:
+  - ```200 OK```: Task updated successfully.
+  - ```400 Bad Request```: Invalid data.
+  - ```404 Not Found```: Task not found.
+
+<h2></h2>
+  
 <h4>4. Delete a Task</h4>
 
-
 Delete an existing task.
+- Endpoint: ```/tasks/{task_id}```
+- Method: ```DELETE```
+- Description: Remove the task with the specified ID from the system.
+- Parameters:
+  - ```task_id``` (string): The ID of the task to delete (required).
+- Response:
 
-    Endpoint: /tasks/{task_id}
-
-    Method: DELETE
-
-    Description: Remove the task with the specified ID from the system.
-
-    Parameters:
-        task_id (string): The ID of the task to delete (required).
-
-    Response:
+```
 
 {
   "message": "Task deleted successfully."
 }
 
-    Status Codes:
-        200 OK: Task deleted successfully.
-        404 Not Found: Task not found.
+```
 
+- Status Codes:
+  - ```200 OK```: Task deleted successfully.
+  - ```404 Not Found```: Task not found.
+
+<h2></h2>
+  
 <h4>5. Get All Tasks</h4>
 
-
 Retrieve a list of all tasks.
+- Endpoint: ```/tasks```
+- Method: ```GET```
+- Description: Get all tasks in the system, with optional filters for status, priority, and category.
+- Parameters:
+  - ```status``` (string, optional): Filter tasks by status (```Pending```, ```In Progress```, ```Completed```).
+  - ```priority``` (string, optional): Filter tasks by priority (```Low```, ```Medium```, ```High```).
+  - ```category_id``` (string, optional): Filter tasks by category ID.
+- Response:
 
-    Endpoint: /tasks
-
-    Method: GET
-
-    Description: Get all tasks in the system, with optional filters for status, priority, and category.
-
-    Parameters:
-        status (string, optional): Filter tasks by status (Pending, In Progress, Completed).
-        priority (string, optional): Filter tasks by priority (Low, Medium, High).
-        category_id (string, optional): Filter tasks by category ID.
-
-    Response:
+```
 
 [
   {
@@ -247,24 +258,26 @@ Retrieve a list of all tasks.
   }
 ]
 
-Status Codes:
-- ```200 OK```: Tasks retrieved successfully.
+```
+
+- Status Codes:
+  - ```200 OK```: Tasks retrieved successfully.
 
 <h2>Tutorials</h2>
 
 <h3>How to Create a Task</h3>
 
 - Get your access token by following the OAuth 2.0 flow
-- Make a POST request to /tasks with the required data:
-        title
-        description (optional)
-        due_date (optional)
-    The response will contain the task details, including the task_id
+- Make a POST request to ```/tasks``` with the required data:
+  - ```title```
+  - ```description (optional)```
+  - ```due_date (optional```)
+- The response will contain the task details, including the ```task_id```
 
 <h3>How to Update a Task</h3>
 
-- Get the task ID by querying an existing task using /tasks/{task_id}
-- Make a PUT request to /tasks/{task_id} with the new data you want to update
+- Get the task ID by querying an existing task using ```/tasks/{task_id}```
+- Make a PUT request to ```/tasks/{task_id}``` with the new data you want to update
 - The task will be updated, and the response will reflect the new data
 
 <h2>Conclusion</h2>
